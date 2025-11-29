@@ -1,0 +1,167 @@
+/* style.css — system-font fallback + commented SF Pro @font-face you can enable later */
+
+/* ---------- Uncomment & use if you later add SF Pro files to /fonts ----------
+@font-face{
+  font-family: "SF Pro Text";
+  src: url("../fonts/SF-Pro-Text-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face{
+  font-family: "SF Pro Text";
+  src: url("../fonts/SF-Pro-Text-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face{
+  font-family: "SF Pro Display";
+  src: url("../fonts/SF-Pro-Display-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+----------------------------------------------------------------------------- */
+
+/* Use system stack for now */
+:root{
+  --saffron:#F2D18B;
+  --bg-top:#F6DFA0;
+  --card:#FFFFFF;
+  --muted:#705C45;
+  --text:#2F241C;
+  --radius-xl:22px;
+  --radius-lg:14px;
+  --radius-md:12px;
+  --shadow-strong: 0 18px 40px rgba(47,36,28,0.12), 0 6px 18px rgba(47,36,28,0.06);
+  --shadow-soft: 0 8px 20px rgba(47,36,28,0.08);
+  --nav-height:74px;
+  --device-width:375px;
+}
+
+/* Reset + base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--saffron) 0%,var(--bg-top) 100%);-webkit-font-smoothing:antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+}
+
+/* Container */
+.app{
+  max-width:var(--device-width);
+  width:100%;
+  margin:0 auto;
+  min-height:100vh;
+  padding-bottom:calc(var(--nav-height) + 12px);
+}
+
+/* Header */
+.header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 18px 6px 18px;
+}
+.title{
+  font-size:22px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:0.2px;
+}
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius-lg);
+  padding:12px;
+  margin:12px 16px;
+  box-shadow:var(--shadow-strong);
+}
+
+/* Hero */
+.hero{
+  width:100%;
+  height:200px;
+  border-radius:16px;
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+  box-shadow:var(--shadow-strong);
+}
+
+/* row buttons */
+.row{
+  display:flex;
+  gap:12px;
+  margin:12px 16px;
+}
+.btn{
+  flex:1;
+  background:var(--card);
+  border-radius:14px;
+  padding:14px 10px;
+  text-align:center;
+  font-weight:700;
+  box-shadow:var(--shadow-soft);
+  color:var(--text);
+  text-decoration:none;
+  display:block;
+}
+
+/* thumbnails */
+.famous-grid{display:flex;gap:10px;margin:6px 0 0 0;}
+.thumb{
+  flex:1; background:var(--card); border-radius:12px; overflow:hidden; box-shadow:var(--shadow-soft); height:86px;
+}
+.thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+
+/* search */
+.search-wrap{padding:8px 16px 2px 16px;}
+.search{
+  background:var(--card);
+  border-radius:12px;
+  height:46px;
+  display:flex;
+  align-items:center;
+  padding:6px 12px;
+  box-shadow:var(--shadow-soft);
+}
+.search input{
+  border:0; outline:0; width:100%; font-size:15px; font-weight:600; color:var(--text);
+}
+
+/* list */
+.list{padding:10px 10px 120px 10px; display:flex; flex-direction:column; gap:10px;}
+.list-item{
+  display:flex; gap:12px; align-items:flex-start;
+  background:var(--card); border-radius:12px; padding:10px; box-shadow:var(--shadow-soft);
+}
+.list-item img{width:64px; height:64px; object-fit:cover; border-radius:10px; flex-shrink:0;}
+.item-text{min-width:0}
+.item-title{font-size:15px; font-weight:700; line-height:1.05;}
+.item-sub{font-size:13px; color:var(--muted); margin-top:6px;}
+
+/* bottom nav */
+.bottom-nav{
+  position:fixed; left:0; right:0; bottom:12px; display:flex; justify-content:center; pointer-events:none;
+}
+.bottom-nav-inner{
+  width:calc(100% - 24px); max-width:var(--device-width);
+  pointer-events:auto;
+  margin:0 12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+  border-radius:28px;
+  display:flex; justify-content:space-around; align-items:center; padding:10px 6px;
+  box-shadow: 0 18px 40px rgba(47,36,28,0.12);
+}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;color:var(--muted);text-decoration:none}
+.nav-btn svg{width:22px; height:22px; display:block;}
+.nav-btn.active{color:#D07E23;}
+
+/* plan */
+.plan-controls{display:flex;gap:10px;padding:12px 16px;}
+.select{
+  flex:1; background:var(--card); border-radius:12px; padding:12px; border:0; font-weight:700; box-shadow:var(--shadow-soft);
+}
+.generate-btn{background:#E6B65A;border-radius:12px;padding:12px 14px;border:0;font-weight:800;box-shadow:var(--shadow-soft);cursor:pointer}
+.itinerary{margin:12px 16px;background:var(--card);border-radius:12px;padding:12px;box-shadow:var(--shadow-soft);}
+
+/* small screens and centering */
+@media(min-width:420px){
+  :root{--device-width:420px}
+}
